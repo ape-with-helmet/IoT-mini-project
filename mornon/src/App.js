@@ -1,9 +1,13 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Navbar } from './Components/Navbar';
 
 function App() {
   return (
     <>
-      <h1>HELL0000000O</h1>
+      <BrowserRouter>
+      <Navbar/>
+      </BrowserRouter>
     </>
   );
 }
