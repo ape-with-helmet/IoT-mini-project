@@ -2,9 +2,11 @@ import React from 'react'
 import './Signup.css'
 
 const Signup = () => {
-  return (
-    <div>Signup</div>
-  )
+    return (
+        <>
+            
+        </>
+    )
 }
 
 export default Signup
