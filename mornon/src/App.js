@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Navbar } from './Components/Navbar';
 import Login from './Pages/Login';
+import TopBar from './Components/TopBar';
 import Signup from './Pages/Signup';
 import Homepage from './Pages/Homepage'
 import About from './Pages/About';
@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Navbar/>
+      <TopBar/>
       <Routes>
         <Route element={<Login/>} path='/login'/>
         <Route element={<Signup/>} path='/signup'/>

@@ -1,0 +1,17 @@
+.topbar_logo{
+    color: #b023ff;
+    font-family: monospace;
+}
+.background_navbar{
+    background-color: rgb(12, 12, 12);
+}
+body {
+    background-color: rgb(17, 17, 17) !important;
+}
+.home_nav{
+    color: azure;
+    animation-name: ;
+}
+.home_nav:hover{
+    color: #b023ff;
+}
