@@ -9,12 +9,12 @@ const TopBar = () => {
         <div className="container-fluid bg-dark novabr">
             <Navbar fixed='top' expand="lg" className="bg-body bg-dark" bg='dark' data-bs-theme="dark">
                 <Container >
-                    <Navbar.Brand href="#home"><span className='topbar_logo'>WaterWatch</span></Navbar.Brand>
+                    <Navbar.Brand href="/"><span className='topbar_logo'>WaterWatch</span></Navbar.Brand>
                     <Nav className="me-auto-dark">
-                        <Nav.Link href="#home"><span className='home_nav'>About Us</span></Nav.Link>
+                        <Nav.Link href="/about"><span className='home_nav'>About Us</span></Nav.Link>
                         {/* <Nav className='justify-content-end'> */}
-                        <Nav.Link href="#link"><span className='home_nav'>Log In</span></Nav.Link>
-                        <Nav.Link href="#link"><span className='home_nav'>Sign Up</span></Nav.Link>     
+                        <Nav.Link href="/login"><span className='home_nav'>Log In</span></Nav.Link>
+                        <Nav.Link href="/signup"><span className='home_nav'>Sign Up</span></Nav.Link>     
                         {/* </Nav> */}
                     </Nav>
                 </Container>
