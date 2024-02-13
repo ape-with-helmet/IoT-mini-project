@@ -14,8 +14,8 @@ const About = () => {
               autoStart: true,
               loop: true,
               cursor: ' 𝗜',
-              delay: 60,
-              pauseFor: 100000
+              delay: 110,
+              pauseFor: 20000
             }}
           />
         </p>

@@ -4,13 +4,15 @@
     font-family: 'Times New Roman', Times, serif;
     text-align: justify;
     margin-top: 10vh;
-    color: aliceblue;
+    color: rgba(240, 248, 255, 0.558);
 }
 .about_holder{
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-top: 0.5px;
+    padding-bottom: 6vh;
     margin-top: 10vh;
-    background-color: rgba(0, 0, 0, 0.138);
+    background-color: rgba(0, 0, 0, 0.353);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
 }
