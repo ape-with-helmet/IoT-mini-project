@@ -1,7 +1,7 @@
 import React from 'react'
 import './About.css'
 import Typewriter from 'typewriter-effect';
-import { useTypingEffect } from '../hooks/typing-effect';
+//import { useTypingEffect } from '../hooks/typing-effect';
 
 const About = () => {
   return (
