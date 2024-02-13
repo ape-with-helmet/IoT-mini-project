@@ -6,8 +6,8 @@ import '../Components/TopBar.css'
 
 const TopBar = () => {
     return (
-        <div className="container-fluid bg-dark">
-            <Navbar fixed='top' expand="lg" className="bg-body" bg='dark' data-bs-theme="dark">
+        <div className="container-fluid bg-dark novabr">
+            <Navbar fixed='top' expand="lg" className="bg-body bg-dark" bg='dark' data-bs-theme="dark">
                 <Container >
                     <Navbar.Brand href="#home"><span className='topbar_logo'>WaterWatch</span></Navbar.Brand>
                     <Nav className="me-auto-dark">

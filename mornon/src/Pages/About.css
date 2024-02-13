@@ -6,3 +6,11 @@
     margin-top: 10vh;
     color: aliceblue;
 }
+.about_holder{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-top: 10vh;
+    background-color: rgba(0, 0, 0, 0.138);
+}
