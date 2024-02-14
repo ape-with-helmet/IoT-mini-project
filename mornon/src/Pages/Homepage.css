@@ -98,8 +98,9 @@ body {
     scrollbar-width: none;
     /* Firefox */
 }
-.about_1{
-    
+
+.about_1 {
+
     margin-top: 10vh;
     background-color: rgba(0, 0, 0, 0.353);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -109,17 +110,91 @@ body {
     padding-top: 1vh;
     padding-bottom: 10%;
 }
-.about-us{
+
+.about-us {
     color: rgba(240, 248, 255, 0.558);
     font-family: monospace;
     animation-name: dezuivere;
     animation-duration: 4s;
     animation-delay: 2s;
-    animation-iteration-count: infinite;    
+    animation-iteration-count: infinite;
     padding: 3%;
     padding-left: 10%;
     top: 20vh;
 }
+
 .about_holder::-webkit-scrollbar {
     display: none;
+}
+
+/* login css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.login-box {
+    background-color: #262526;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h2 {
+    color: aliceblue;
+    margin-top: 0;
+    text-align: center;
+}
+
+.login-form {
+    color: #262526;
+    margin-top: 20px;
+}
+
+label {
+    color: aliceblue;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000307;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #500457;
+}
+
+.forgot-password {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
 }

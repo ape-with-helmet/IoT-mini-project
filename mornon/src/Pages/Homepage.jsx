@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import './Homepage.css'
 
 const Homepage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform login logic here
+    console.log('Email:', email);
+    console.log('Password:', password);
+  };
   return (
     <>
       <img src='https://freepngimg.com/save/10328-biohazard-symbol-png-pic/2406x2400' alt='Toxic Rotation' className='bg-image'></img>
       <div className="container">
         <div className="row">
-          <div className="col-lg-6 col-6">
+          <div className="col-lg-6 col-12">
             <div className='container-fluid about_1'>
               <div className="about-us row"><h1>Water Watch</h1></div>
               <div className='about_holder'>
@@ -26,9 +35,37 @@ const Homepage = () => {
                 </p>
               </div>
             </div>
-            <div className="col-lg-6 col-6">
-            lol
           </div>
+          <div className="col-lg-6 col-12">
+            <div className="login-container">
+              <div className="login-box">
+                <h2>Login</h2>
+                <form className="login-form" onSubmit={handleSubmit}>
+                  <label htmlFor="email">Email:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  <label htmlFor="password">Password:</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  <button type="submit">Login</button>
+                  <div className="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
