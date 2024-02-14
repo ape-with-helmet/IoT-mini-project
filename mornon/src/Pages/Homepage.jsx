@@ -39,9 +39,10 @@ const Homepage = () => {
           <div className="col-lg-6 col-12">
             <div className="login-container">
               <div className="login-box">
+                <h6>Sign in to WaterWatch</h6>
                 <h2>Login</h2>
                 <form className="login-form" onSubmit={handleSubmit}>
-                  <label htmlFor="email">Email:</label>
+                  <label htmlFor="email">Email Address</label>
                   <input
                     type="email"
                     id="email"
@@ -50,7 +51,7 @@ const Homepage = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
-                  <label htmlFor="password">Password:</label>
+                  <label htmlFor="password">Password</label>
                   <input
                     type="password"
                     id="password"
@@ -59,13 +60,15 @@ const Homepage = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-                  <button type="submit">Login</button>
+                  <button type="submit">Sign in</button>
                   <div className="forgot-password">
-                    <a href="#">Forgot Password?</a>
+                    <a id="password" href="#">Forgot Password?</a>
+                    <h6>New to WaterWatch? <a href="./Signup">Create account</a></h6>
                   </div>
                 </form>
               </div>
             </div>
+            
           </div>
         </div>
       </div>

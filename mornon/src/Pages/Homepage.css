@@ -145,10 +145,15 @@ body {
     width: 100%;
 }
 
-h2 {
+h2 ,h6{
     color: aliceblue;
     margin-top: 0;
     text-align: center;
+}
+
+#password{
+    justify-content: end;
+    right: 0 !important;
 }
 
 .login-form {
@@ -173,7 +178,7 @@ input[type="password"] {
 
 button {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     background-color: #000307;
     color: #fff;
     border: none;
@@ -187,12 +192,14 @@ button:hover {
 
 .forgot-password {
     margin-top: 10px;
-    text-align: center;
+    text-align: end;
+
 }
 
 .forgot-password a {
     color: #007bff;
     text-decoration: none;
+    font-size: small;
 }
 
 .forgot-password a:hover {

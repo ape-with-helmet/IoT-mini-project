@@ -17,7 +17,7 @@ const Signup = () => {
       <div className="register-box">
         <h2>Register</h2>
         <form className="register-form" onSubmit={handleSubmit}>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -26,7 +26,7 @@ const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
@@ -35,7 +35,7 @@ const Signup = () => {
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
