@@ -19,6 +19,7 @@ const Signup = () => {
         <form className="register-form" onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <input
+            className='input_signup'
             type="email"
             id="email"
             name="email"
@@ -28,6 +29,7 @@ const Signup = () => {
           />
           <label htmlFor="username">Username</label>
           <input
+            className='input_signup'
             type="text"
             id="username"
             name="username"
@@ -37,6 +39,7 @@ const Signup = () => {
           />
           <label htmlFor="password">Password</label>
           <input
+            className='input_signup'
             type="password"
             id="password"
             name="password"
@@ -44,7 +47,7 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Register</button>
+          <button type="submit" className='signup_button'>Register</button>
         </form>
       </div>
     </div>

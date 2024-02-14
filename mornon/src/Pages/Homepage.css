@@ -1,14 +1,10 @@
 .bg-image {
-    -webkit-animation: slidein 20s;
-    animation: slidein 20s;
-    -webkit-animation-fill-mode: both;
+    animation: slidein 200s;
     animation-fill-mode: both;
     opacity: 0.2;
-    -webkit-animation-iteration-count: infinite;
+    left: calc(100vw/5);
     animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    -webkit-animation-direction: alternate;
-    animation-direction: alternate;
+    animation-direction: linear;
     position: fixed;
     z-index: -2;
     height: 100vh;
@@ -17,28 +13,12 @@
 body {
     background-color: rgba(0, 0, 0, 0.9) !important;
 }
-
-@-webkit-keyframes slidein {
-    from {
-        left: 300px;
-        size: 100vh;
-    }
-
-    to {
-        left: 500px;
-        size: 100vh;
-    }
-}
-
 @keyframes slidein {
     from {
-        left: 300px;
-        size: 100vh;
+        transform: rotate(0deg);
     }
-
     to {
-        left: 500px;
-        size: 100vh;
+        transform: rotate(350deg);
     }
 
 }
@@ -167,27 +147,42 @@ label {
     margin-bottom: 10px;
 }
 
-input[type="email"],
-input[type="password"] {
+.input_signup {
     width: 100%;
     padding: 8px;
+    background-color: #00030722;
+    color: rgba(240, 248, 255, 0.558);
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc4e;
     border-radius: 4px;
 }
 
-button {
+.home_button {
     width: 100%;
     padding: 15px;
-    background-color: #000307;
+    background-color: grey;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
+@keyframes fadetopurple {
+    0% {
+        background-color: rgba(240, 248, 255, 0.558);
+    }
 
-button:hover {
-    background-color: #500457;
+    50% {
+        background-color: rgba(221, 160, 221, 0.677);
+    }
+
+    100% {
+        background-color: #b023ff;
+    }
+}
+.home_button:hover {
+    background-color: #b023ff;
+    transform: translateY(-2px);
 }
 
 .forgot-password {

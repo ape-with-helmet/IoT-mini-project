@@ -44,6 +44,7 @@ const Homepage = () => {
                 <form className="login-form" onSubmit={handleSubmit}>
                   <label htmlFor="email">Email Address</label>
                   <input
+                    className='input_signup'
                     type="email"
                     id="email"
                     name="email"
@@ -53,6 +54,7 @@ const Homepage = () => {
                   />
                   <label htmlFor="password">Password</label>
                   <input
+                    className='input_signup'
                     type="password"
                     id="password"
                     name="password"
@@ -60,7 +62,7 @@ const Homepage = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-                  <button type="submit">Sign in</button>
+                  <button type="submit" className='home_button'>Sign in</button>
                   <div className="forgot-password">
                     <a id="password" href="#">Forgot Password?</a>
                     <h6>New to WaterWatch? <a href="./Signup">Create account</a></h6>
@@ -68,7 +70,7 @@ const Homepage = () => {
                 </form>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
