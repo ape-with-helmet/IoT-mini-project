@@ -8,7 +8,7 @@ const Homepage = () => {
       <img src='https://freepngimg.com/save/10328-biohazard-symbol-png-pic/2406x2400' alt='Toxic Rotation' className='bg-image'></img>
       <div className="container">
         <div className="row">
-          <div className="col-lg-6 col-12">
+          <div className="col-lg-6 col-6">
             <div className='container-fluid about_1'>
               <div className="about-us row"><h1>Water Watch</h1></div>
               <div className='about_holder'>
@@ -26,7 +26,7 @@ const Homepage = () => {
                 </p>
               </div>
             </div>
-            <div className="col-lg-6 col-12">
+            <div className="col-lg-6 col-6">
             lol
           </div>
           </div>
