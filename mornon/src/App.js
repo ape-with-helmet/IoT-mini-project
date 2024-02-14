@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <TopBar/>
+      {/* <TopBar/> */}
       <Routes>
         <Route element={<Login/>} path='/login'/>
         <Route element={<Signup/>} path='/signup'/>

@@ -1,0 +1,125 @@
+.bg-image {
+    -webkit-animation: slidein 20s;
+    animation: slidein 20s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    opacity: 0.2;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    position: fixed;
+    z-index: -2;
+    height: 100vh;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+@-webkit-keyframes slidein {
+    from {
+        left: 300px;
+        size: 100vh;
+    }
+
+    to {
+        left: 500px;
+        size: 100vh;
+    }
+}
+
+@keyframes slidein {
+    from {
+        left: 300px;
+        size: 100vh;
+    }
+
+    to {
+        left: 500px;
+        size: 100vh;
+    }
+
+}
+
+
+@keyframes dezuivere {
+    0% {
+        color: rgba(240, 248, 255, 0.558);
+    }
+
+    20% {
+        color: rgba(221, 160, 221, 0.677);
+    }
+
+    45% {
+        color: #b023ff;
+    }
+
+    55% {
+        color: #b023ff;
+    }
+
+    80% {
+        color: rgba(221, 160, 221, 0.677);
+    }
+
+    100% {
+        color: rgba(240, 248, 255, 0.558);
+    }
+}
+
+.novabr {
+    background-blend-mode: overlay;
+}
+
+.about_text {
+    font-size: 1em;
+    letter-spacing: 2px;
+    font-family: monospace;
+    text-align: justify;
+    margin-top: 0vh;
+    color: rgba(240, 248, 255, 0.558);
+}
+
+.about_holder {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5vh;
+    border-radius: 10px;
+    height: 500px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    z-index: 2;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+.about_1{
+    
+    margin-top: 10vh;
+    background-color: rgba(0, 0, 0, 0.353);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    max-height: 600px;
+    overflow: hidden;
+    padding-top: 1vh;
+    padding-bottom: 10%;
+}
+.about-us{
+    color: rgba(240, 248, 255, 0.558);
+    font-family: monospace;
+    animation-name: dezuivere;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;    
+    padding: 3%;
+    padding-left: 10%;
+    top: 20vh;
+}
+.about_holder::-webkit-scrollbar {
+    display: none;
+}

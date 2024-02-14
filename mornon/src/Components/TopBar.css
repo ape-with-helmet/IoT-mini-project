@@ -16,29 +16,6 @@
     background-color: black;
 }
 
-
-body {
-    background-size: cover;
-    -webkit-animation: slidein 20s;
-    animation: slidein 20s;
-
-    -webkit-animation-fill-mode:both;
-    animation-fill-mode: both;
-
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    -webkit-animation-direction: alternate;
-    animation-direction: alternate;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.9) !important;
-    background-image: url(https://freepngimg.com/save/10328-biohazard-symbol-png-pic/2406x2400);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
 @-webkit-keyframes slidein {
     from {
         background-position: 300px 0px;
