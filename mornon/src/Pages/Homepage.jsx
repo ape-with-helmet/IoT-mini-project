@@ -1,17 +1,62 @@
 import React, { useState } from 'react';
 import Typewriter from 'typewriter-effect';
-import './Homepage.css'
+import './Homepage.css';
+import Signup from './Signup'; 
 
 const Homepage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showSignup, setShowSignup] = useState(false); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login logic here
     console.log('Email:', email);
     console.log('Password:', password);
   };
+
+  const handleCreateAccountClick = () => {
+    setShowSignup(true); 
+  };
+
+  let content;
+  if (!showSignup) {
+    content = (
+      <div className="login-box">
+        <h6>Sign in to WaterWatch</h6>
+        <h2>Login</h2>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label htmlFor="email">Email Address</label>
+          <input
+            className='input_signup'
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            className='input_signup'
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit" className='home_button'>Sign in</button>
+          <div className="forgot-password">
+            <a href="/forgotpassword">Forgot Password?</a>
+            <h6>New to WaterWatch? <button type="button" onClick={handleCreateAccountClick}>Create account</button></h6>
+          </div>
+        </form>
+      </div>
+    );
+  } else {
+    content = <Signup />;
+  }
+
   return (
     <>
       <img src='https://freepngimg.com/save/10328-biohazard-symbol-png-pic/2406x2400' alt='Toxic Rotation' className='bg-image'></img>
@@ -38,44 +83,16 @@ const Homepage = () => {
           </div>
           <div className="col-lg-6 col-12">
             <div className="login-container">
-              <div className="login-box">
-                <h6>Sign in to WaterWatch</h6>
-                <h2>Login</h2>
-                <form className="login-form" onSubmit={handleSubmit}>
-                  <label htmlFor="email">Email Address</label>
-                  <input
-                    className='input_signup'
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                  <label htmlFor="password">Password</label>
-                  <input
-                    className='input_signup'
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                  <button type="submit" className='home_button'>Sign in</button>
-                  <div className="forgot-password">
-                    <a id="password" href="#">Forgot Password?</a>
-                    <h6>New to WaterWatch? <a href="./Signup">Create account</a></h6>
-                  </div>
-                </form>
-              </div>
+              {content}
             </div>
-
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Homepage
+export default Homepage;
+
+
+
