@@ -21,94 +21,9 @@ const Homepage = () => {
   const handleCreateAccountClick = () => {
     setShowSignup(true);
   };
-
-  let content;
-  if (!showSignup) {
-    content = (
-      <div className="login-box">
-        <h6>Sign in to WaterWatch</h6>
-        <h2>Login</h2>
-        <form className="login-form" onSubmit={handleSubmit}>
-          <label htmlFor="login-email">Email Address</label>
-          <input
-            className="input_signup"
-            type="email"
-            id="login-email"
-            name="email"
-            value={emaail}
-            onChange={(e) => setEmaail(e.target.value)}
-            required
-          />
-          <label htmlFor="login-password">Password</label>
-          <input
-            className="input_signup"
-            type="password"
-            id="login-password"
-            name="password"
-            value={passwordd}
-            onChange={(e) => setPasswordd(e.target.value)}
-            required
-          />
-          <button type="submit" className="home_button">
-            Sign in
-          </button>
-          <div className="forgot-password">
-            <a href="/forgotpassword">Forgot Password?</a>
-            <h6>
-              New to WaterWatch?{" "}
-              <button type="button" onClick={handleCreateAccountClick}>
-                Create account
-              </button>
-            </h6>
-          </div>
-        </form>
-      </div>
-    );
-  } else {
-    content = (
-      <div className="register-container">
-        <div className="register-box">
-          <h2>Register</h2>
-          <form className="register-form" onSubmit={handleSubmit}>
-            <label htmlFor="register-email">Email</label>
-            <input
-              className="input_signup"
-              type="email"
-              id="register-email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <label htmlFor="register-username">Username</label>
-            <input
-              className="input_signup"
-              type="text"
-              id="register-username"
-              name="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-            <label htmlFor="register-password">Password</label>
-            <input
-              className="input_signup"
-              type="password"
-              id="register-password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit" className="signup_button">
-              Register
-            </button>
-          </form>
-        </div>
-      </div>
-    );
-  }
-
+  const handleLoginClick = () => {
+    setShowSignup(false);
+  };
   return (
     <>
       <img
@@ -142,7 +57,90 @@ const Homepage = () => {
             </div>
           </div>
           <div className="col-lg-6 col-12">
-            <div className="login-container">{content}</div>
+            <div className="roll-animation">
+              <div className={showSignup ? 'login-container-show' : 'login-container-hide'}>
+                <div className="login-box">
+                  <h6>Sign in to WaterWatch</h6>
+                  <h2>Login</h2>
+                  <form className="login-form" onSubmit={handleSubmit}>
+                    <label htmlFor="login-email">Email Address</label>
+                    <input
+                      className="input_signup"
+                      type="email"
+                      id="login-email"
+                      name="email"
+                      value={emaail}
+                      onChange={(e) => setEmaail(e.target.value)}
+                      required />
+                    <label htmlFor="login-password">Password</label>
+                    <input
+                      className="input_signup"
+                      type="password"
+                      id="login-password"
+                      name="password"
+                      value={passwordd}
+                      onChange={(e) => setPasswordd(e.target.value)}
+                      required />
+                    <button type="submit" className="home_button">
+                      Sign in
+                    </button>
+                    <div className="forgot-password">
+                      <span className="forgot-password-text" onClick={()=>alert("We cant help you :)")}>Forgot Password?</span>
+                      <h6>
+                        New to WaterWatch?{" "}
+                        <span className='switch-button' onClick={handleCreateAccountClick}>
+                          Create account
+                        </span>
+                      </h6>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div className={showSignup ? 'register-container-hide' : 'register-container-show'}>
+                <div className="register-box">
+                  <h2>Register</h2>
+                  <form className="register-form" onSubmit={handleSubmit}>
+                    <label htmlFor="register-email">Email</label>
+                    <input
+                      className="input_signup"
+                      type="email"
+                      id="register-email"
+                      name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required />
+                    <label htmlFor="register-username">Username</label>
+                    <input
+                      className="input_signup"
+                      type="text"
+                      id="register-username"
+                      name="username"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      required />
+                    <label htmlFor="register-password">Password</label>
+                    <input
+                      className="input_signup"
+                      type="password"
+                      id="register-password"
+                      name="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required />
+                    <button type="submit" className="home_button">
+                      Register
+                    </button>
+                    <h6>
+                      New to WaterWatch?{" "}
+                      <span className='switch-button' onClick={handleLoginClick}>
+                        Login
+                      </span>
+                    </h6>
+                  </form>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
