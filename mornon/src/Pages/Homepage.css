@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .bg-image {
     animation: slidein 200s;
     animation-fill-mode: both;
@@ -13,10 +15,16 @@
 body {
     background-color: rgba(0, 0, 0, 0.9) !important;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
 @keyframes slidein {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(350deg);
     }
@@ -57,7 +65,7 @@ body {
 .about_text {
     font-size: 1em;
     letter-spacing: 2px;
-    font-family: monospace;
+    font-family: Poppins;
     text-align: justify;
     margin-top: 0vh;
     color: rgba(240, 248, 255, 0.558);
@@ -80,20 +88,120 @@ body {
 }
 
 .about_1 {
-
+    margin-left: -40px;
     margin-top: 10vh;
     background-color: rgba(0, 0, 0, 0.353);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* color: rgba(240, 248, 255, 0.558); */
     border-radius: 10px;
     max-height: 600px;
     overflow: hidden;
     padding-top: 1vh;
+    left: 5vw;
     padding-bottom: 10%;
 }
 
+.login-data {
+    font-family: Poppins;
+    text-align: center;
+}
+
+.logout-button {
+    color: white;
+    cursor: pointer;
+    background-color: #b023ff;
+    padding: 1% 3%;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+.logout-button:hover {
+    transform: translateY(5px);
+    scale: 1.05;
+}
+
+.data-page {
+    margin-left: -30px;
+    margin-top: 10vh;
+    background-color: rgba(0, 0, 0, 0.353);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: rgba(240, 248, 255, 0.558);
+    border-radius: 10px;
+    max-height: 600px;
+    overflow: hidden;
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    left: 5vw;
+    align-items: center;
+    padding-bottom: 5vh;
+}
+
+.tank-container {
+    margin: 10% 10% 2% 10%;
+    width: 100px;
+    /* Adjust width of tank container as needed */
+    height: 200px;
+    /* Adjust height of tank container as needed */
+    border: 1px solid #000;
+    /* Optional: Add border to the tank container */
+}
+
+.tank {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #e0e0e048;
+    /* Tank background color */
+    position: relative;
+    overflow: hidden;
+}
+
+.tank-level {
+    transition: all 10s ease;
+    background-color: #006aff;
+    /* Color for the tank fill level */
+    position: absolute;
+    border-radius: 0px 0px 20px 20px;
+    bottom: 0;
+    left: -20px;
+    width: 150px;
+    height: 100%;
+    animation: sloshWater 5s infinite ease-in-out;
+}
+
+@keyframes sloshWater {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    /* Initial and final positions */
+    25% {
+        transform: translateY(-1px) rotate(-2deg);
+    }
+
+    /* Move up and rotate slightly */
+    50% {
+        transform: translateY(1px) rotate(2deg);
+    }
+
+    /* Move down and rotate slightly */
+    75% {
+        transform: translateY(0px) rotate(-1deg);
+    }
+
+    /* Move up and rotate slightly */
+}
+
+
+
+
 .about-us {
     color: rgba(240, 248, 255, 0.558);
-    font-family: monospace;
+    font-family: Poppins;
     animation-name: dezuivere;
     animation-duration: 4s;
     animation-delay: 2s;
@@ -113,7 +221,7 @@ body {
     /* position: absolute; */
     flex-direction: column;
     /* background-color: #b023ff; */
-    justify-content:flex-start;
+    justify-content: flex-start;
     padding-top: 5vh;
     /* overflow: hidden; */
     align-items: center;
@@ -123,12 +231,13 @@ body {
     transform: translateY(-81vh);
     opacity: 00;
 }
+
 .login-container-hide {
     display: flex;
     /* position: absolute; */
     flex-direction: column;
     /* background-color: #b023ff; */
-    justify-content:flex-start;
+    justify-content: flex-start;
     padding-top: 5vh;
     /* overflow: hidden; */
     align-items: center;
@@ -142,7 +251,7 @@ body {
     /* position: absolute; */
     flex-direction: column;
     /* background-color: #b023ff; */
-    justify-content:flex-start;
+    justify-content: flex-start;
     padding-top: 5vh;
     /* overflow: hidden; */
     align-items: center;
@@ -151,6 +260,7 @@ body {
     transition: all 1s ease;
     opacity: 00;
 }
+
 .register-container-hide {
     transform: translateY(-101vh);
     display: flex;
@@ -158,7 +268,7 @@ body {
     /* position: absolute; */
     flex-direction: column;
     /* background-color: #b023ff; */
-    justify-content:flex-start;
+    justify-content: flex-start;
     padding-top: 5vh;
     /* overflow: hidden; */
     align-items: center;
@@ -166,9 +276,9 @@ body {
     /* margin-left: 6vw; */
     transition: all 1s ease;
     opacity: 1;
-  }
-  
-.roll-animation{
+}
+
+.roll-animation {
     overflow: hidden;
     display: block;
     height: 60vh;
@@ -176,6 +286,7 @@ body {
     z-index: 4;
     /* background-color: #007bff; */
 }
+
 .login-box {
     background-color: #262526;
     padding: 20px;
@@ -186,13 +297,14 @@ body {
     width: 100%;
 }
 
-h2 ,h6{
+h2,
+h6 {
     color: aliceblue;
     margin-top: 0;
     text-align: center;
 }
 
-#password{
+#password {
     justify-content: end;
     right: 0 !important;
 }
@@ -228,6 +340,7 @@ label {
     cursor: pointer;
     transition: all 0.5s ease;
 }
+
 @keyframes fadetopurple {
     0% {
         background-color: rgba(240, 248, 255, 0.558);
@@ -241,6 +354,7 @@ label {
         background-color: #b023ff;
     }
 }
+
 .home_button:hover {
     background-color: #b023ff;
     transform: translateY(-1px);
@@ -263,54 +377,56 @@ label {
     text-decoration: underline;
 }
 
-  .register-box {
+.register-box {
     width: 400px;
     padding: 20px;
     background-color: #262526;
     border: 1px solid #cccccc1f;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.3);
-  }
-  
-  .register-box h2 {
+}
+
+.register-box h2 {
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  .register-form {
+}
+
+.register-form {
     display: flex;
     flex-direction: column;
-  }
-  
-  label {
+}
+
+label {
     margin-bottom: 5px;
-  }
-  
-  .input_signup{
+}
+
+.input_signup {
     padding: 5px;
     margin-bottom: 10px;
     border-radius: 3px;
     color: rgba(240, 248, 255, 0.558);
     border: 1px solid #cccccc1f;
-  }
-  
-  .switch-button {
+}
+
+.switch-button {
     color: rgb(0, 106, 255);
     border: none;
     border-radius: 3px;
     cursor: pointer;
     transition: all 1s ease;
-  }
-  
-  .switch-button:hover {
+}
+
+.switch-button:hover {
     color: white;
     /* background-color:  #320242; */
-  }
-  .login-container.show{
+}
+
+.login-container.show {
     transform: translateY(-102vh);
     /* opacity: 0; */
-  }
-  .hide{
+}
+
+.hide {
     transform: translateY(0vh);
     opacity: 1;
-  } 
+}

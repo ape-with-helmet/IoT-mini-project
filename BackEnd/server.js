@@ -1,46 +1,107 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
-
+const User = require('./userSchema'); // Importing the user model
+const { validEmail, validPassword, validUsername } = require('./validations');
 const app = express();
 const port = 8080;
-
-// MongoDB connection
-mongoose.connect('mongodb+srv://ganeshshatrugna:rj8DyBUfzjaTdO2k@mornon.gdze2yg.mongodb.net/userdetails', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => { console.log('Database connected') })
-    .catch((error) => { console.error('Error connecting to MongoDB:', error) });
-
-// Define a schema for the data
-const buttonDataSchema = new mongoose.Schema({
-    totalButtonsPressed: Number
-});
-
-// Create a model based on the schema
-const ButtonData = mongoose.model('ButtonData', buttonDataSchema);
-
 // Middleware
 app.use(express.json());
 app.use(cors());
 
-// Endpoint to receive data from Arduino
-app.post('/data', (req, res) => {
-    const { totalButtonsPressed } = req.body;
+app.post("/create_user", async (req, res) => {
+    try {
+        const data = req.body;
+        const { username, email, password } = data;
+        if (!username || !password || !email) {
+            console.log("not enough stuff")
+            return res.send({ message: "Not enough details", status: 500 });
+        }
+        if (!validEmail(email)) {
+            console.log("Invalid email");
+            return res.send({ message: "Invalid email", status: 500 });
+        }
+        if (!validPassword(password)) {
+            console.log("Invalid password");
+            return res.send({ message: "Invalid password", status: 500 });
+        }
+        if (!validUsername(username)) {
+            console.log("Invalid username");
+            return res.send({ message: "Invalid username", status: 500 });
+        }
+        let uniqueEmail = await User.findOne({ email });
+        if (uniqueEmail) {
+            console.log("Email already exists");
+            return res.send({ message: "Email already exists", status: 500 });
+        }
+        let uniqueUsername = await User.findOne({ username });
+        if (uniqueUsername) {
+            console.log("Username already exists");
+            return res.send({ message: "Username already exists", status: 500 });
+        }
+        let createUser = await User.create(data);
+        console.log(createUser);
+        return res.send({ message: `Created user ${username}`, status: 200 });
+    } catch (error) {
+        console.log(error)
+        return res.send({ message: `Unknown error`, status: 500 });
+    }
+})
 
-    // Create a new document using the ButtonData model
-    const newData = new ButtonData({ totalButtonsPressed });
+app.post("/user_login", async (req, res) => {
+    try {
+        const data = req.body;
+        const { email, password } = data;
+        if (!email || !password) {
+            return res.send({ message: "Insufficient data", status: 500 });
+        }
+        let uniqueEmail = User.findOne({ email });
+        if (!uniqueEmail) {
+            return res.send({ message: "Email doesnt exist", status: 500 });
+        }
+        else {
+            let dataCheck = await User.findOne({ email, password });
+            if (!dataCheck) {
+                return res.send({ message: "Credentials do not match", status: 500 });
+            }
+            else {
+                return res.send({ message: "Logged in Successfully", status: 200 })
+            }
+        }
+    } catch (error) {
+        console.log(error)
+        return res.send({ message: `Unknown error`, status: 500 });
+    }
+})
 
-    // Save the new document to the database
-    newData.save()
-        .then(() => {
-            console.log('Data inserted successfully');
-            res.send('Data inserted successfully');
-        })
-        .catch((error) => {
-            console.error('Error inserting data into MongoDB:', error);
-            res.status(500).send('Internal server error');
-        });
+app.post("/getData", async (req, res) => {
+    try {
+        const email = req.body.email;
+
+        // Execute the query to find a document based on the email
+        const response = await User.findOne({ email: email });
+        if (response) {
+            res.send({ data: response }); // Send the found document as a response
+        } else {
+            console.log("No document found for email:", email);
+            res.send({ message: "No document found for email", status: 404 });
+        }
+    } catch (error) {
+        console.error("Error retrieving data:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
 });
 
+
+app.post("/updateTank", async (req, res) => {
+    try {
+        const user = req.body.email;
+        const data = await User.findOneAndUpdate({ email: user }, { tankData: 1 }, { new: true });
+        console.log(data.tankData)
+    } catch (error) {
+        // console.error("Error retrieving tankData:", error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+})
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
