@@ -17,28 +17,30 @@ const Homepage = () => {
   const [loginData, setLoginData] = useState('');
   const [tankLevel, getTankLevel] = useState(0);
   const [lastUpdate, getLastUpdate] = useState('');
-  const date = new Date();
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
-  // Extract day, month, and year components
-  const day = date.getDate().toString().padStart(2, '0');
-  const monthIndex = date.getMonth(); // Months are zero-indexed
-  const month = monthNames[monthIndex];
-  const year = date.getFullYear();
 
-  // Extract hours, minutes, and seconds components
-  const hours = date.getHours().toString().padStart(2, '0');
-  const minutes = date.getMinutes().toString().padStart(2, '0');
-  const seconds = date.getSeconds().toString().padStart(2, '0');
   const handleData = async () => {
     try {
       const axiosPromise = axios.post("http://localhost:8080/getData", { email: loginData });
       const response = await axiosPromise;
-      // console.log(response.data.data)
+      // console.log(response.data.updatedAt)
+      const date = new Date(response.data.data.updatedAt);
+      console.log(response.data.data.updatedAt,"space to sewe",date)
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      // Extract day, month, and year components
+      const day = date.getDate().toString().padStart(2, '0');
+      const monthIndex = date.getMonth(); // Months are zero-indexed
+      const month = monthNames[monthIndex];
+      const year = date.getFullYear();
+
+      // Extract hours, minutes, and seconds components
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      const seconds = date.getSeconds().toString().padStart(2, '0');
       getTankLevel(response.data.data.tankData);
-      const formattedDateTime = ` ${hours}:${minutes}:${seconds} ${day} ${month} ${year}`;
+      const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds} `;
       getLastUpdate(formattedDateTime);
       // console.log(tankLevel)
     } catch (error) {
@@ -102,6 +104,16 @@ const Homepage = () => {
     localStorage.clear();
     window.location.href = '/'
   }
+
+
+  async function changeLevel(x){
+    await axios.post("http://localhost:8080/change_water",{
+      email: loginData,
+      value: x
+    })
+  }
+
+
   const handleCreateAccountClick = () => {
     setShowSignup(true);
   };
@@ -235,22 +247,28 @@ const Homepage = () => {
                   <div className="login-data">Logged in as {loginData}</div>
                   <div className="tank-container">
                     <div className="tank">
-                      <div className="tank-level" style={{ 
-                        height: `${tankLevel * 20 + 10}%`,
-                        backgroundColor: tankLevel===0?'red':'#006aff'}}>
+                      <div className="tank-level" style={{
+                        height: `${tankLevel * 20 + 20}%`,
+                        backgroundColor: tankLevel === 0 ? 'red' : '#006aff'
+                      }}>
                         {/* Indicator for tank fullness */}
                       </div>
                     </div>
                   </div>
                   <h3>Your tank level is: {
-                    tankLevel===0?<>Critically Low</>
-                    :tankLevel===1?<>Below Half</>
-                    :tankLevel===2?<>Half</>
-                    :tankLevel===3?<>More than Half</>
-                    :tankLevel===4?<>Full</>
-                    :<>Error! Call technician!</>
+                    tankLevel === 0 ? <>Critically Low</>
+                      : tankLevel === 1 ? <>Below Half</>
+                        : tankLevel === 2 ? <>Half</>
+                          : tankLevel === 3 ? <>More than Half</>
+                            : tankLevel === 4 ? <>Full</>
+                              : <>Error! Call technician!</>
                   }</h3>
                   <p>Last updated on: {lastUpdate}</p>
+                  <button onClick={()=>changeLevel(0)}>0</button>
+                  <button onClick={()=>changeLevel(1)}>1</button>
+                  <button onClick={()=>changeLevel(2)}>2</button>
+                  <button onClick={()=>changeLevel(3)}>3</button>
+                  <button onClick={()=>changeLevel(4)}>4</button>
                   <div className="logout-button" onClick={() => handleLogout()}>Logout</div>
                 </div>
               </>

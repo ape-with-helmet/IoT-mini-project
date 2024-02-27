@@ -91,7 +91,15 @@ app.post("/getData", async (req, res) => {
     }
 });
 
-
+app.post("/change_water", async (req, res) => {
+    try {
+        const value = req.body.value;
+        const email = req.body.email;
+        await User.findOneAndUpdate({ email: email }, { tankData: value }, { new: true });
+    }
+    catch(error)
+    {}
+})
 app.post("/updateTank", async (req, res) => {
     try {
         const user = req.body.email;

@@ -159,7 +159,7 @@ body::-webkit-scrollbar {
 }
 
 .tank-level {
-    transition: all 10s ease;
+    transition: all 5s ease;
     background-color: #006aff;
     /* Color for the tank fill level */
     position: absolute;
@@ -168,7 +168,7 @@ body::-webkit-scrollbar {
     left: -20px;
     width: 150px;
     height: 100%;
-    animation: sloshWater 5s infinite ease-in-out;
+    animation: sloshWater 6s infinite ease-in-out;
 }
 
 @keyframes sloshWater {
