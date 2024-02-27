@@ -243,7 +243,7 @@ label {
 }
 .home_button:hover {
     background-color: #b023ff;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .forgot-password {
