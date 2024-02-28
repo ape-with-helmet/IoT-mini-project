@@ -24,7 +24,7 @@ const Homepage = () => {
       const response = await axiosPromise;
       // console.log(response.data.updatedAt)
       const date = new Date(response.data.data.updatedAt);
-      console.log(response.data.data.updatedAt,"space to sewe",date)
+      console.log(response.data.data.updatedAt, "space to sewe", date)
       const monthNames = [
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
@@ -93,6 +93,8 @@ const Homepage = () => {
       toast.success(response.data.message);
       setEmail("");
       setPassword("");
+      setEmaail("");
+      setPasswordd("");
       setUsername("");
       handleLoginClick();
     }
@@ -102,12 +104,13 @@ const Homepage = () => {
   };
   function handleLogout() {
     localStorage.clear();
-    window.location.href = '/'
+    window.location.href = '/';
+    toast.success("Logged Out");
   }
 
 
-  async function changeLevel(x){
-    await axios.post("http://localhost:8080/change_water",{
+  async function changeLevel(x) {
+    await axios.post("http://localhost:8080/change_water", {
       email: loginData,
       value: x
     })
@@ -146,7 +149,7 @@ const Homepage = () => {
                       autoStart: true,
                       loop: true,
                       cursor: " 𝗜",
-                      delay: 200,
+                      delay: 50,
                       pauseFor: 50000,
                     }}
                   />
@@ -264,11 +267,13 @@ const Homepage = () => {
                               : <>Error! Call technician!</>
                   }</h3>
                   <p>Last updated on: {lastUpdate}</p>
-                  <button onClick={()=>changeLevel(0)}>0</button>
-                  <button onClick={()=>changeLevel(1)}>1</button>
-                  <button onClick={()=>changeLevel(2)}>2</button>
-                  <button onClick={()=>changeLevel(3)}>3</button>
-                  <button onClick={()=>changeLevel(4)}>4</button>
+                  <div className="temporary-buttons">
+                    <button onClick={() => changeLevel(0)}>0</button>
+                    <button onClick={() => changeLevel(1)}>1</button>
+                    <button onClick={() => changeLevel(2)}>2</button>
+                    <button onClick={() => changeLevel(3)}>3</button>
+                    <button onClick={() => changeLevel(4)}>4</button>
+                  </div>
                   <div className="logout-button" onClick={() => handleLogout()}>Logout</div>
                 </div>
               </>

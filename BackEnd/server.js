@@ -12,6 +12,7 @@ app.post("/create_user", async (req, res) => {
     try {
         const data = req.body;
         const { username, email, password } = data;
+        const tankLevel = 1;
         if (!username || !password || !email) {
             console.log("not enough stuff")
             return res.send({ message: "Not enough details", status: 500 });
@@ -38,7 +39,7 @@ app.post("/create_user", async (req, res) => {
             console.log("Username already exists");
             return res.send({ message: "Username already exists", status: 500 });
         }
-        let createUser = await User.create(data);
+        let createUser = await User.create({email:email,username:username,password:password,tankData:tankLevel});
         console.log(createUser);
         return res.send({ message: `Created user ${username}`, status: 200 });
     } catch (error) {

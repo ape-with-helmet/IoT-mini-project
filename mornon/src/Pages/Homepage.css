@@ -147,7 +147,11 @@ body::-webkit-scrollbar {
     border: 1px solid #000;
     /* Optional: Add border to the tank container */
 }
-
+.temporary-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
 .tank {
     width: 100%;
     height: 100%;
@@ -180,17 +184,17 @@ body::-webkit-scrollbar {
 
     /* Initial and final positions */
     25% {
-        transform: translateY(-1px) rotate(-2deg);
+        transform: translateY(-1px) rotate(-3deg);
     }
 
     /* Move up and rotate slightly */
     50% {
-        transform: translateY(1px) rotate(2deg);
+        transform: translateY(4px) rotate(4deg);
     }
 
     /* Move down and rotate slightly */
     75% {
-        transform: translateY(0px) rotate(-1deg);
+        transform: translateY(0px) rotate(-2deg);
     }
 
     /* Move up and rotate slightly */
