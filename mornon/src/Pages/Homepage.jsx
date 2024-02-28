@@ -104,8 +104,10 @@ const Homepage = () => {
   };
   function handleLogout() {
     localStorage.clear();
-    window.location.href = '/';
     toast.success("Logged Out");
+    setTimeout(() => {
+      window.location.href = '/';      
+    }, 1000);
   }
 
 
