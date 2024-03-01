@@ -269,13 +269,6 @@ const Homepage = () => {
                               : <>Error! Call technician!</>
                   }</h3>
                   <p>Last updated on: {lastUpdate}</p>
-                  <div className="temporary-buttons">
-                    <button onClick={() => changeLevel(0)}>0</button>
-                    <button onClick={() => changeLevel(1)}>1</button>
-                    <button onClick={() => changeLevel(2)}>2</button>
-                    <button onClick={() => changeLevel(3)}>3</button>
-                    <button onClick={() => changeLevel(4)}>4</button>
-                  </div>
                   <div className="logout-button" onClick={() => handleLogout()}>Logout</div>
                 </div>
               </>

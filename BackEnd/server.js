@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const User = require('./userSchema'); // Importing the user model
 const { validEmail, validPassword, validUsername } = require('./validations');
 const app = express();
@@ -7,6 +8,7 @@ const port = 8080;
 // Middleware
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded data
 
 app.post("/create_user", async (req, res) => {
     try {
@@ -103,14 +105,24 @@ app.post("/change_water", async (req, res) => {
 })
 app.post("/updateTank", async (req, res) => {
     try {
+        // Parse the integer value from the request body
+        // const value = parseInt(req.body);
+        const {email,value}=req.body;
+        console.log(req.body)
+        console.log(email,value)
+        // Update tankData for the user (assuming user is identified by email)
         const user = req.body.email;
-        const data = await User.findOneAndUpdate({ email: user }, { tankData: 1 }, { new: true });
-        console.log(data.tankData)
+        const data = await User.findOneAndUpdate({ email: user }, { tankData: value }, { new: true });
+        
+        // Log and send back the updated tankData
+        console.log("Updated tankData:", data.tankData);
+        res.status(200).json({ message: 'Tank data updated successfully', tankData: data.tankData });
     } catch (error) {
-        // console.error("Error retrieving tankData:", error);
+        console.error("Error updating tankData:", error);
         res.status(500).json({ message: 'Internal server error' });
     }
-})
+});
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
