@@ -41,7 +41,7 @@ app.post("/create_user", async (req, res) => {
             console.log("Username already exists");
             return res.send({ message: "Username already exists", status: 500 });
         }
-        let createUser = await User.create({email:email,username:username,password:password,tankData:tankLevel});
+        let createUser = await User.create({ email: email, username: username, password: password, tankData: tankLevel });
         console.log(createUser);
         return res.send({ message: `Created user ${username}`, status: 200 });
     } catch (error) {
@@ -100,22 +100,20 @@ app.post("/change_water", async (req, res) => {
         const email = req.body.email;
         await User.findOneAndUpdate({ email: email }, { tankData: value }, { new: true });
     }
-    catch(error)
-    {}
+    catch (error) { }
 })
 app.post("/updateTank", async (req, res) => {
     try {
         // Parse the integer value from the request body
         // const value = parseInt(req.body);
-        const {email,value}=req.body;
-        console.log(req.body)
-        console.log(email,value)
-        // Update tankData for the user (assuming user is identified by email)
+        const { email, value, motor } = req.body;
+        // console.log(req.body)
+        // console.log(email, value, motor)
         const user = req.body.email;
-        const data = await User.findOneAndUpdate({ email: user }, { tankData: value }, { new: true });
-        
+        const data = await User.findOneAndUpdate({ email: user }, { tankData: value, motorStatus: motor }, { new: true });
+
         // Log and send back the updated tankData
-        console.log("Updated tankData:", data.tankData);
+        // console.log("Updated tankData:", data);
         res.status(200).json({ message: 'Tank data updated successfully', tankData: data.tankData });
     } catch (error) {
         console.error("Error updating tankData:", error);

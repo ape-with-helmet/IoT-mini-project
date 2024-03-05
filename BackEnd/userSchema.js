@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema({
     },
     tankData: {
         type: Number
+    },
+    motorStatus: {
+        type: Number
     }
 }, { timestamps: true })
 module.exports = mongoose.model('user', userSchema);

@@ -17,6 +17,7 @@ const Homepage = () => {
   const [loginData, setLoginData] = useState('');
   const [tankLevel, getTankLevel] = useState(0);
   const [lastUpdate, getLastUpdate] = useState('');
+  const [motorStatus, setMotor] = useState(0);
 
   const handleData = async () => {
     try {
@@ -42,6 +43,7 @@ const Homepage = () => {
       getTankLevel(response.data.data.tankData);
       const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds} `;
       getLastUpdate(formattedDateTime);
+      setMotor(response.data.data.motorStatus);
       // console.log(tankLevel)
     } catch (error) {
       toast.error(error.message);
@@ -106,7 +108,7 @@ const Homepage = () => {
     localStorage.clear();
     toast.success("Logged Out");
     setTimeout(() => {
-      window.location.href = '/';      
+      window.location.href = '/';
     }, 1000);
   }
 
@@ -268,6 +270,7 @@ const Homepage = () => {
                             : tankLevel === 4 ? <>Full</>
                               : <>Error! Call technician!</>
                   }</h3>
+                  <h1>Motor Status : {motorStatus?<>Running</>:<>Off</>}</h1>
                   <p>Last updated on: {lastUpdate}</p>
                   <div className="logout-button" onClick={() => handleLogout()}>Logout</div>
                 </div>

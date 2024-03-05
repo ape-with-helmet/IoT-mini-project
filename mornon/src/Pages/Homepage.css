@@ -168,10 +168,10 @@ body::-webkit-scrollbar {
     /* Color for the tank fill level */
     position: absolute;
     border-radius: 0px 0px 20px 20px;
-    bottom: 0;
+    bottom: -2px;
     left: -20px;
     width: 150px;
-    height: 100%;
+    height: 110%;
     animation: sloshWater 6s infinite ease-in-out;
 }
 
